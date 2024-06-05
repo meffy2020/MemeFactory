@@ -45,10 +45,12 @@ const Home = () => {
 
       // Quotes
       ctx.fillStyle = 'yellow';
+      ctx.strokeStyle = 'yellow';
       ctx.fillText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
       ctx.strokeText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
 
       ctx.fillStyle = 'white';
+      ctx.strokeStyle = 'White';
       ctx.fillText(quote2, ctx.canvas.width / 2, ctx.canvas.height - 20);
       ctx.strokeText(quote2, ctx.canvas.width / 2, ctx.canvas.height - 20);
     };
