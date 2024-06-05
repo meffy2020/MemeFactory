@@ -45,12 +45,10 @@ const Home = () => {
 
       // Quotes
       ctx.fillStyle = 'yellow';
-      ctx.strokeStyle = 'yellow';
       ctx.fillText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
       ctx.strokeText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
 
       ctx.fillStyle = 'white';
-      ctx.strokeStyle = 'White';
       ctx.fillText(quote2, ctx.canvas.width / 2, ctx.canvas.height - 20);
       ctx.strokeText(quote2, ctx.canvas.width / 2, ctx.canvas.height - 20);
     };
@@ -87,10 +85,10 @@ const Home = () => {
 
   return (
     <Layout>
-      <section className="text-gray-600 body-font flex-grow">
-        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-12 md:flex-row md:space-x-16 md:justify-center">
-          <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-8 md:space-y-0">
-            <div className="lg:max-w-lg lg:w-1/2 md:w-1/2 w-full mb-10 md:mb-0" onClick={() => document.getElementById('imageUpload')?.click()}>
+      <section className="text-gray-600 body-font flex-grow pt-4 md:pt-8">
+        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-8 md:flex-row md:space-x-16 md:justify-center">
+          <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0">
+            <div className="lg:max-w-lg lg:w-1/2 md:w-1/2 w-full mb-4 md:mb-0" onClick={() => document.getElementById('imageUpload')?.click()}>
               <canvas
                 ref={canvasRef}
                 id="memeCanvas"
@@ -107,8 +105,8 @@ const Home = () => {
               />
             </div>
             <div className="lg:flex-grow md:w-1/2 flex flex-col items-center md:items-start md:text-left text-center w-full">
-              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">밈팩토리</h1>
-              <div className="mb-8 leading-relaxed">밈 선택 및 커스텀 서비스</div>
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900 hidden md:block">밈팩토리</h1>
+              <div className="mb-8 leading-relaxed hidden md:block">밈 선택 및 커스텀 서비스</div>
               <div className="mb-4 w-full max-w-lg">
                 <select
                   value={memeStyle}
