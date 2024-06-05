@@ -10,6 +10,9 @@ module.exports = {
         sans: ['Noto Sans KR', 'sans-serif'],
         myeongjo: ['Nanum Myeongjo', 'serif'],
       },
+      colors: {
+        primary: '#0f4c81',
+      },
     },
   },
   plugins: [],

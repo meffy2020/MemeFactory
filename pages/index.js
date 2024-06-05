@@ -85,87 +85,89 @@ const Home = () => {
 
   return (
     <Layout>
-      <section className="text-gray-600 body-font font-sans">
-        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-24 md:flex-row">
-          <div className="lg:max-w-lg lg:w-1/2 md:w-1/2 w-full mb-10 md:mb-0" onClick={() => document.getElementById('imageUpload')?.click()}>
-            <canvas
-              ref={canvasRef}
-              id="memeCanvas"
-              width="500"
-              height="500"
-              className="border cursor-pointer w-full h-auto"
-            />
-            <input
-              type="file"
-              id="imageUpload"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageUpload}
-            />
-          </div>
-          <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">밈팩토리</h1>
-            <div className="mb-8 leading-relaxed">밈 선택 및 커스텀 서비스 </div>
-            <div className="mb-4">
-              <select
-                value={memeStyle}
-                onChange={(e) => setMemeStyle(e.target.value)}
-                className="bg-gray-200 border border-gray-300 p-2 rounded"
-              >
-                <option value="muhan">무한도전</option>
-                <option value="ingan">인간극장</option>
-                <option value="investigation">그것이 알고싶다</option>
-              </select>
-            </div>
-            <div className="flex flex-wrap mb-4 space-y-2 md:space-y-0 md:space-x-2">
-              <input
-                type="text"
-                placeholder="날짜 요일"
-                value={date}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setDate(e.target.value)}
+      <section className="text-gray-600 body-font flex-grow">
+        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-12 md:flex-row md:space-x-16 md:justify-center">
+          <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-8 md:space-y-0">
+            <div className="lg:max-w-lg lg:w-1/2 md:w-1/2 w-full mb-10 md:mb-0" onClick={() => document.getElementById('imageUpload')?.click()}>
+              <canvas
+                ref={canvasRef}
+                id="memeCanvas"
+                width="500"
+                height="500"
+                className="border cursor-pointer w-full h-auto"
               />
               <input
-                type="text"
-                placeholder="시간"
-                value={time}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setTime(e.target.value)}
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                className="hidden"
+                onChange={handleImageUpload}
               />
             </div>
-            <div className="flex flex-wrap mb-4 space-y-2 md:space-y-0 md:space-x-2">
-              <input
-                type="text"
-                placeholder="이름(나이)"
-                value={name}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setName(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="직업"
-                value={job}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setJob(e.target.value)}
-              />
+            <div className="lg:flex-grow md:w-1/2 flex flex-col items-center md:items-start md:text-left text-center w-full">
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">밈팩토리</h1>
+              <div className="mb-8 leading-relaxed">밈 선택 및 커스텀 서비스</div>
+              <div className="mb-4 w-full max-w-lg">
+                <select
+                  value={memeStyle}
+                  onChange={(e) => setMemeStyle(e.target.value)}
+                  className="bg-gray-200 border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                >
+                  <option value="muhan">무한도전</option>
+                  <option value="ingan">인간극장</option>
+                  <option value="investigation">그것이 알고싶다</option>
+                </select>
+              </div>
+              <div className="flex mb-4 w-full max-w-lg space-x-2">
+                <input
+                  type="text"
+                  placeholder="날짜 요일"
+                  value={date}
+                  className="p-2 border border-gray-300 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setDate(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="시간"
+                  value={time}
+                  className="p-2 border border-gray-300 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setTime(e.target.value)}
+                />
+              </div>
+              <div className="flex mb-4 w-full max-w-lg space-x-2">
+                <input
+                  type="text"
+                  placeholder="이름(나이)"
+                  value={name}
+                  className="p-2 border border-gray-300 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="직업"
+                  value={job}
+                  className="p-2 border border-gray-300 rounded w-1/2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setJob(e.target.value)}
+                />
+              </div>
+              <div className="flex flex-col mb-4 space-y-2 w-full max-w-lg">
+                <input
+                  type="text"
+                  placeholder="대사 1"
+                  value={quote1}
+                  className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setQuote1(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="대사 2"
+                  value={quote2}
+                  className="p-2 border border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  onChange={(e) => setQuote2(e.target.value)}
+                />
+              </div>
+              <button className="bg-primary text-white p-2 rounded w-full md:w-auto max-w-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" onClick={handleDownload}>짤 만들기</button>
             </div>
-            <div className="flex flex-col mb-4 space-y-2">
-              <input
-                type="text"
-                placeholder="대사 1"
-                value={quote1}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setQuote1(e.target.value)}
-              />
-              <input
-                type="text"
-                placeholder="대사 2"
-                value={quote2}
-                className="p-2 border border-gray-300 rounded"
-                onChange={(e) => setQuote2(e.target.value)}
-              />
-            </div>
-            <button className="bg-indigo-500 text-white p-2 rounded" onClick={handleDownload}>짤 만들기</button>
           </div>
         </div>
       </section>
