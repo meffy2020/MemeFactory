@@ -85,8 +85,8 @@ const Home = () => {
 
   return (
     <Layout>
-      <section className="text-gray-600 body-font flex-grow pt-4 md:pt-8">
-        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-8 md:flex-row md:space-x-16 md:justify-center">
+      <section className="text-gray-600 body-font flex-grow pt-1 md:pt-8">
+        <div className="container mx-auto flex flex-col items-center justify-center px-5 py-1 md:py-8 md:flex-row md:space-x-16 md:justify-center">
           <div className="w-full max-w-4xl flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0">
             <div className="lg:max-w-lg lg:w-1/2 md:w-1/2 w-full mb-4 md:mb-0" onClick={() => document.getElementById('imageUpload')?.click()}>
               <canvas
@@ -94,7 +94,7 @@ const Home = () => {
                 id="memeCanvas"
                 width="500"
                 height="500"
-                className="border cursor-pointer w-full h-auto"
+                className="border cursor-pointer w-full h-auto mt-1 md:mt-0"
               />
               <input
                 type="file"
