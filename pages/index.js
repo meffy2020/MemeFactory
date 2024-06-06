@@ -1,49 +1,52 @@
-"use client";
+"use client"; // 클라이언트 측에서 실행된다는 것을 나타냄
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { saveAs } from 'file-saver';
 import Layout from '../components/layout';
 
-const sampleImage = '/test.webp'; // public 폴더 내의 샘플 이미지 경로
+// 샘플 이미지 경로 설정
+const sampleImage = '/test.webp'; 
 
 const Home = () => {
-  const [image, setImage] = useState(sampleImage);
-  const [date, setDate] = useState('5(Wen)');
-  const [time, setTime] = useState('13:00');
-  const [name, setName] = useState('푸바오(2)');
-  const [job, setJob] = useState('짤 만드는 공간');
-  const [quote1, setQuote1] = useState('이렇게 만들 수 있어요!');
-  const [quote2, setQuote2] = useState('여기를 눌러 사진 선택 📷');
-  const [memeStyle, setMemeStyle] = useState('ingan');
-  const canvasRef = useRef(null);
-  const [isClient, setIsClient] = useState(false);
+  // 상태 변수 설정
+  const [image, setImage] = useState(sampleImage); // 이미지 상태
+  const [date, setDate] = useState('5(Wen)'); // 날짜 상태
+  const [time, setTime] = useState('13:00'); // 시간 상태
+  const [name, setName] = useState('푸바오(2)'); // 이름 상태
+  const [job, setJob] = useState('짤 만드는 공간'); // 직업 상태
+  const [quote1, setQuote1] = useState('이렇게 만들 수 있어요!'); // 첫 번째 대사 상태
+  const [quote2, setQuote2] = useState('여기를 눌러 사진 선택 📷'); // 두 번째 대사 상태
+  const [memeStyle, setMemeStyle] = useState('ingan'); // 밈 스타일 상태
+  const canvasRef = useRef(null); // 캔버스 참조
+  const [isClient, setIsClient] = useState(false); // 클라이언트 측 렌더링 여부
 
   useEffect(() => {
     setIsClient(true); // 컴포넌트가 클라이언트 측에서 마운트된 후에만 렌더링되도록 설정
   }, []);
 
+  // 밈을 그리는 함수
   const drawMeme = useCallback((ctx) => {
     const img = new Image();
     img.src = image;
     img.onload = () => {
-      ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height);
-      ctx.font = 'normal 16px Gowun Batang';
-      ctx.fillStyle = 'white';
-      ctx.strokeStyle = 'White';
-      ctx.lineWidth = 1;
+      ctx.drawImage(img, 0, 0, ctx.canvas.width, ctx.canvas.height); // 이미지를 캔버스에 그리기
+      ctx.font = 'normal 16px Gowun Batang'; // 글꼴 설정
+      ctx.fillStyle = 'white'; // 글자 색상 설정
+      ctx.strokeStyle = 'White'; // 글자 외곽선 색상 설정
+      ctx.lineWidth = 1; // 외곽선 두께 설정
 
-      // Date and Time
+      // 날짜와 시간을 캔버스에 그리기
       ctx.textAlign = 'left';
       ctx.fillText(date, 10, 30);
       ctx.strokeText(date, 10, 30);
       ctx.fillText(time, 10, 60);
       ctx.strokeText(time, 10, 60);
 
-      // Name, Age, Job
+      // 이름과 직업을 캔버스에 그리기
       ctx.textAlign = 'center';
       ctx.fillText(`${name} / ${job}`, ctx.canvas.width / 2, ctx.canvas.height - 80);
       ctx.strokeText(`${name} / ${job}`, ctx.canvas.width / 2, ctx.canvas.height - 80);
 
-      // Quotes
+      // 첫 번째 대사와 두 번째 대사를 캔버스에 그리기
       ctx.fillStyle = 'yellow';
       ctx.fillText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
       ctx.strokeText(quote1, ctx.canvas.width / 2, ctx.canvas.height - 50);
@@ -54,6 +57,7 @@ const Home = () => {
     };
   }, [image, date, time, name, job, quote1, quote2]);
 
+  // 컴포넌트가 렌더링될 때마다 이미지와 상태를 다시 그리기
   useEffect(() => {
     if (image && isClient) {
       const ctx = canvasRef.current.getContext('2d');
@@ -61,6 +65,7 @@ const Home = () => {
     }
   }, [image, date, time, name, job, quote1, quote2, memeStyle, drawMeme, isClient]);
 
+  // 이미지 업로드 핸들러
   const handleImageUpload = (event) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -72,6 +77,7 @@ const Home = () => {
     }
   };
 
+  // 밈 다운로드 핸들러
   const handleDownload = () => {
     const canvas = canvasRef.current;
     canvas.toBlob((blob) => {
@@ -81,7 +87,8 @@ const Home = () => {
     });
   };
 
-  if (!isClient) return null; // 클라이언트 측에서만 렌더링
+  // 클라이언트 측에서만 렌더링
+  if (!isClient) return null; 
 
   return (
     <Layout>
@@ -113,9 +120,9 @@ const Home = () => {
                   onChange={(e) => setMemeStyle(e.target.value)}
                   className="bg-gray-200 border border-gray-300 p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
-                  <option value="muhan">무한도전</option>
+                  
                   <option value="ingan">인간극장</option>
-                  <option value="investigation">그것이 알고싶다</option>
+                  
                 </select>
               </div>
               <div className="flex mb-4 w-full max-w-lg space-x-2">
@@ -166,7 +173,7 @@ const Home = () => {
                   onChange={(e) => setQuote2(e.target.value)}
                 />
               </div>
-              <button className="bg-primary text-white p-2 rounded w-full md:w-auto max-w-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" onClick={handleDownload}>짤 만들기</button>
+              <button className="bg-primary text-white p-2 rounded w-full md:w-auto mb-3 max-w-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50" onClick={handleDownload}>짤 만들기</button>
             </div>
           </div>
         </div>

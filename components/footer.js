@@ -1,15 +1,16 @@
 export default function Footer() {
     return (
       <div>
+        <div className="w-full border-t-2 border-gray-200"></div> {/* 전체 너비 구분선 */}
         <footer className="text-gray-600 body-font">
-          <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col border-t border-gray-200">
-            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 hidden sm:block">
-              <span className="ml-3 text-xl">밈팩토리</span>
+          <div className="container px-5 py-1 mx-auto flex items-center sm:flex-row flex-col">
+            <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900 mb-0 md:mb-0">
+              <img src="/logo.png" alt="MemeFactory Logo" className="w-16 h-16 object-contain mb-0 md:mb-0 m-0" />
             </a>
-            <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">
+            <p className="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-0">
               © 2024 MemeFactory —
               <a
-                href="https://twitter.com/knyttneve"
+                href="https://twitter.com/"
                 className="text-gray-600 ml-1"
                 rel="noopener noreferrer"
                 target="_blank"
