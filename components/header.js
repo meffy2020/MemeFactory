@@ -2,7 +2,9 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
+    
     <header className="text-gray-600 body-font border-b-2 border-gray-200">
+        
       <div className="container mx-auto flex flex-wrap p-2 md:p-0 flex-col md:flex-row items-center">
         <Link href="/" legacyBehavior>
           
@@ -14,7 +16,7 @@ export default function Header() {
           <Link href="/" legacyBehavior>
             <a className="mr-5 hover:text-gray-900">홈</a>
           </Link>
-          <a className="mr-5 hover:text-gray-900">프로젝트</a>
+          
           <Link href="https://open.kakao.com/o/s8P7WCvg" legacyBehavior>
             <a className="mr-5 hover:text-gray-900">연락하기</a>
           </Link>
